@@ -1,14 +1,16 @@
 import psutil
+import os
 
 
-def print_disk_info():
-    disk_info = []
+def disk_info():
+    os.system("cls")
+    info = []
     for part in psutil.disk_partitions(all=True):
         if psutil.WINDOWS:
             # пропуск несмонтированных дисков во избежании ошибок
             # при запуске на Windows
             if part.fstype == '':
-                disk_info.append({
+                info.append({
                     'Диск': part.device,
                     'Тип': part.opts,
                     'Готов': False
@@ -16,7 +18,7 @@ def print_disk_info():
                 continue
 
         usage = psutil.disk_usage(part.mountpoint)
-        disk_info.append({
+        info.append({
             'Диск': part.mountpoint,
             'Тип': part.opts,
             'Файловая система': part.fstype,
@@ -25,11 +27,9 @@ def print_disk_info():
             'Использовано %': usage.percent,
             'Свободно': usage.free
         })
-
-    for part in disk_info:
+    print("\n[Disk information]\n")
+    for part in info:
         for key, value in part.items():
-            print(f"{key}: {value}")
-        print("---------------")
-
-
-print_disk_info()
+            print(f"    {key}: {value}")
+        print()
+    input("\n\n => Back")
