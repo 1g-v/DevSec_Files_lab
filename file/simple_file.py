@@ -4,7 +4,7 @@ import os
 
 def submenu():
     title = '[Work with file]'
-    options = ['Create new file', 'Add line to file', 'Output file', 'Back']
+    options = ['Create/clear temp file', 'Add line to file', 'Output file', 'Back']
     option, index = pick(options, title, indicator='=>', default_index=0)
     return index
 
