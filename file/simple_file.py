@@ -4,7 +4,7 @@ import os
 
 def submenu():
     title = '[Work with file]'
-    options = ['Create/clear temp file', 'Add line to file', 'Output file', 'Back']
+    options = ['Create/clear file', 'Add line to file', 'Output file', 'Delete file', 'Back']
     option, index = pick(options, title, indicator='=>', default_index=0)
     return index
 
@@ -36,6 +36,16 @@ def output_file():
     input("\n\n => Back")
 
 
+def delete_file():
+    os.system("cls")
+    try:
+        path = os.path.abspath('tmp.txt')
+        os.remove(path)
+    except Exception as ex:
+        print(ex)
+        input("\n\nPress Enter to continue...")
+
+
 def work_with_file():
     while True:
         match submenu():
@@ -49,4 +59,7 @@ def work_with_file():
                 output_file()
                 continue
             case 3:
+                delete_file()
+                continue
+            case 4:
                 break
