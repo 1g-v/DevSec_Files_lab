@@ -3,6 +3,7 @@ import os
 from disk_info import disk_info
 from simple_file import work_with_file
 from json_file import work_with_json
+from xml_file import work_with_xml
 
 
 def main_menu():
