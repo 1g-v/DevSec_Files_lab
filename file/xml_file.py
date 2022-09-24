@@ -90,6 +90,3 @@ def work_with_xml():
                 delete_file()
             case 4:
                 pass
-
-
-work_with_xml()
