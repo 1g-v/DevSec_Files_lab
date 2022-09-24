@@ -89,4 +89,4 @@ def work_with_xml():
             case 3:
                 delete_file()
             case 4:
-                pass
+                break
