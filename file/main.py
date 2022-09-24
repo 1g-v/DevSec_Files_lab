@@ -14,7 +14,6 @@ def main_menu():
 
 def main():
     while True:
-        # index = main_menu()
         match main_menu():
             case 0:
                 disk_info()

@@ -78,13 +78,6 @@ def output_file():
         input("\n\nPress Enter to continue...")
 
 
-def submenu():
-    title = '[Work with JSON file]'
-    options = ['Create JSON file', 'Add new JSON lines', 'Output file', 'Delete file', 'Back']
-    option, index = pick(options, title, indicator='=>', default_index=0)
-    return index
-
-
 def delete_file():
     os.system("cls")
     try:
@@ -93,6 +86,13 @@ def delete_file():
     except Exception as ex:
         print(ex)
         input("\n\nPress Enter to continue...")
+
+
+def submenu():
+    title = '[Work with JSON file]'
+    options = ['Create JSON file', 'Add new JSON lines', 'Output file', 'Delete file', 'Back']
+    option, index = pick(options, title, indicator='=>', default_index=0)
+    return index
 
 
 def work_with_json():

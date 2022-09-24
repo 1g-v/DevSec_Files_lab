@@ -30,10 +30,14 @@ def add_to_file():
 
 def output_file():
     os.system("cls")
-    with open("tmp.txt", "r") as tmp:
-        for line in tmp.read().splitlines():
-            print(line)
-    input("\n\n => Back")
+    try:
+        with open("tmp.txt", "r") as tmp:
+            for line in tmp.read().splitlines():
+                print(line)
+        input("\n\n => Back")
+    except Exception as ex:
+        print(ex)
+        input("\n\nPress Enter to continue...")
 
 
 def delete_file():
