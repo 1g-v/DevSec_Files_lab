@@ -1,6 +1,9 @@
 import xml.etree.ElementTree as ET
-from pick import pick
 import os
+from pick import pick
+from simple_file import output_file, delete_file
+
+filename = "tmp.xml"
 
 
 def create_xml():
@@ -22,15 +25,16 @@ def create_xml():
 
 
 def create_subelement():
-    root = ET.parse('tmp.xml').getroot()
+    os.system("cls")
+    root = ET.parse(filename).getroot()
     parent = root
     while True:
-        element_name = input(f"Enter the name of <{parent.tag}> subelement : ")
+        element_name = input(f"Enter the name of <{parent.tag}> subelement (empty to stop): ")
         if element_name == "":
             break
         attrs = {}
         while True:
-            key = input(f"Enter the name of attribute of <{element_name}> : ")
+            key = input(f"Enter the name of attribute of <{element_name}> (empty to skip): ")
             if key == "":
                 break
             value = input(f'Enter the "{key}" value: ')
@@ -45,7 +49,7 @@ def create_subelement():
 def add_to_xml(root):
     tree = ET.ElementTree(root)
     ET.indent(tree)
-    tree.write("tmp.xml", xml_declaration=True, encoding='utf-8')
+    tree.write(filename, xml_declaration=True, encoding='utf-8')
 
 
 def submenu():
@@ -53,28 +57,6 @@ def submenu():
     options = ['Create simple XML file', 'Add new element to XML', 'Output file', 'Delete file', 'Back']
     option, index = pick(options, title, indicator='=>', default_index=0)
     return index
-
-
-def output_file():
-    os.system("cls")
-    try:
-        with open("tmp.xml", "r") as tmp:
-            for line in tmp.read().splitlines():
-                print(line)
-        input("\n\n => Back")
-    except Exception as ex:
-        print(ex)
-        input("\n\nPress Enter to continue...")
-
-
-def delete_file():
-    os.system("cls")
-    try:
-        path = os.path.abspath('tmp.xml')
-        os.remove(path)
-    except Exception as ex:
-        print(ex)
-        input("\n\nPress Enter to continue...")
 
 
 def work_with_xml():
@@ -85,8 +67,8 @@ def work_with_xml():
             case 1:
                 create_subelement()
             case 2:
-                output_file()
+                output_file(filename)
             case 3:
-                delete_file()
+                delete_file(filename)
             case 4:
                 break

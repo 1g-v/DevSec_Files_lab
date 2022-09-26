@@ -1,6 +1,9 @@
-from pick import pick
-import json
 import os
+import json
+from pick import pick
+from simple_file import output_file, delete_file
+
+filename = "tmp.json"
 
 
 class Person:
@@ -11,13 +14,13 @@ class Person:
 
 
 def add_data_to_json(data={}):
-    with open("tmp.json", "w") as file:
+    with open(filename, "w") as file:
         json.dump(data, file, indent=4)
 
 
 def merge(obj):
     try:
-        with open("tmp.json", "r") as file:
+        with open(filename, "r") as file:
             data = json.load(file) | obj.__dict__
             return data
     except Exception as ex:
@@ -66,28 +69,6 @@ def create_new_object():
             pass
 
 
-def output_file():
-    os.system("cls")
-    try:
-        with open("tmp.json", "r") as tmp:
-            for line in tmp.read().splitlines():
-                print(line)
-        input("\n\n => Back")
-    except Exception as ex:
-        print(ex)
-        input("\n\nPress Enter to continue...")
-
-
-def delete_file():
-    os.system("cls")
-    try:
-        path = os.path.abspath('tmp.json')
-        os.remove(path)
-    except Exception as ex:
-        print(ex)
-        input("\n\nPress Enter to continue...")
-
-
 def submenu():
     title = '[Work with JSON file]'
     options = ['Create JSON file', 'Add new JSON lines', 'Output file', 'Delete file', 'Back']
@@ -105,10 +86,10 @@ def work_with_json():
                 create_new_object()
                 continue
             case 2:
-                output_file()
+                output_file(filename)
                 continue
             case 3:
-                delete_file()
+                delete_file(filename)
                 continue
             case 4:
                 break

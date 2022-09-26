@@ -1,5 +1,7 @@
-from pick import pick
 import os
+from pick import pick
+
+filename = "tmp.txt"
 
 
 def submenu():
@@ -11,39 +13,39 @@ def submenu():
 
 def create_new_file():
     os.system("cls")
-    with open("tmp.txt", "w"):
+    with open(filename, "w"):
         print("\nNew file created!")
-    input("\n\n => Back")
+    input("\n\nPress Enter to continue...")
 
 
 def add_to_file():
     os.system("cls")
     print("Enter a lines to write (Ctrl+C to stop)")
-    with open("tmp.txt", "a") as tmp:
+    with open(filename, "a") as tmp:
         while True:
             try:
                 tmp.write(str(input(">>> ")) + "\n")
             except KeyboardInterrupt:
                 break
-    input("\n\n => Back")
+    input("\n\nPress Enter to continue...")
 
 
-def output_file():
+def output_file(filename):
     os.system("cls")
     try:
-        with open("tmp.txt", "r") as tmp:
+        with open(filename, "r") as tmp:
             for line in tmp.read().splitlines():
                 print(line)
-        input("\n\n => Back")
+        input("\n\nPress Enter to continue...")
     except Exception as ex:
         print(ex)
         input("\n\nPress Enter to continue...")
 
 
-def delete_file():
+def delete_file(filename):
     os.system("cls")
     try:
-        path = os.path.abspath('tmp.txt')
+        path = os.path.abspath(filename)
         os.remove(path)
     except Exception as ex:
         print(ex)
@@ -60,10 +62,10 @@ def work_with_file():
                 add_to_file()
                 continue
             case 2:
-                output_file()
+                output_file(filename)
                 continue
             case 3:
-                delete_file()
+                delete_file(filename)
                 continue
             case 4:
                 break
