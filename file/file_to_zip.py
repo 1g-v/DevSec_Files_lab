@@ -49,8 +49,6 @@ def work_with_zip():
                 continue
             case 3:
                 delete_file(zip_name)
+                continue
             case 4:
-                pass
-
-
-work_with_zip()
+                break
