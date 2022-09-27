@@ -29,7 +29,7 @@ def merge(obj):
 
 
 def create_file():
-    title = '[Add sample data to a file?]'
+    title = '[Add sample data to a files?]'
     options = ['Yes', 'No']
     option, index = pick(options, title, indicator='=>', default_index=0)
     match index:
@@ -52,7 +52,7 @@ def create_new_object():
         new_data[key] = value
     new_obj = Person(new_data)
 
-    title = '[Serialize to JSON and add an object to file?]'
+    title = '[Serialize to JSON and add an object to files?]'
     options = ['Yes', 'No']
     option, index = pick(options, title, indicator='=>', default_index=0)
     match index:
@@ -70,8 +70,8 @@ def create_new_object():
 
 
 def submenu():
-    title = '[Work with JSON file]'
-    options = ['Create JSON file', 'Add new JSON lines', 'Output file', 'Delete file', 'Back']
+    title = '[Work with JSON files]'
+    options = ['Create JSON file', 'Add new JSON lines', 'Read file', 'Delete file', 'Back']
     option, index = pick(options, title, indicator='=>', default_index=0)
     return index
 

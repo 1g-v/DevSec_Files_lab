@@ -20,18 +20,18 @@ def write_to_zip(filename):
 
 def extract_from_zip(filename):
     with zipfile.ZipFile(zip_name, "r") as zip_f:
-        zip_f.extract(filename)
+        zip_f.extract(filename, path="/extracted_files")
 
 
 def submenu():
-    title = '[Work with JSON file]'
+    title = '[Work with JSON files]'
     options = ['Create zip-archive', 'Add file to zip', 'Extract file from zip', 'Delete zip', 'Back']
     option, index = pick(options, title, indicator='=>', default_index=0)
     return index
 
 
 def pick_file(files_list):
-    title = '[Select a file]'
+    title = '[Select a files]'
     option, index = pick(files_list, title, indicator='=>', default_index=0)
     return option
 
