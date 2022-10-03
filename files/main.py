@@ -8,7 +8,7 @@ from file_to_zip import work_with_zip
 
 def main_menu():
     title = '1st lab | author: Igumenshchev Vasily | github: 1g-v'
-    options = ['View disk info', 'Work with a text files', 'Work with a JSON', 'Work with XML', 'Work with zip archive']
+    options = ['View disk info', 'Work with a text file', 'Work with a JSON', 'Work with XML', 'Work with zip archive']
     option, index = pick(options, title, indicator='=>', default_index=0)
     return index
 

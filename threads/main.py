@@ -14,6 +14,7 @@ def f(alphabet_bit):
         if sha256(''.join(i).encode('utf-8')).hexdigest() in array:
             print('Password for the hash function ' + sha256(''.join(i).encode('utf-8')).hexdigest() + ' - ' + ''.join(i))
 
+
 if __name__ == '__main__':
     procs = []
     proc_count = int(input("enter proc count - "))

@@ -53,7 +53,7 @@ def add_to_xml(root):
 
 
 def submenu():
-    title = '[Work with XML files]'
+    title = '[Work with XML file]'
     options = ['Create simple XML file', 'Add new element to XML', 'Read file', 'Delete file', 'Back']
     option, index = pick(options, title, indicator='=>', default_index=0)
     return index

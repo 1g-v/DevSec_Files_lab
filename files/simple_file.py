@@ -5,7 +5,7 @@ filename = "tmp.txt"
 
 
 def submenu():
-    title = '[Work with files]'
+    title = '[Work with ]'
     options = ['Create/clear file', 'Add line to file', 'Read file', 'Delete file', 'Back']
     option, index = pick(options, title, indicator='=>', default_index=0)
     return index
@@ -14,7 +14,7 @@ def submenu():
 def create_new_file():
     os.system("cls")
     with open(filename, "w"):
-        print("\nNew files created!")
+        print("\nNew  created!")
     input("\n\nPress Enter to continue...")
 
 
