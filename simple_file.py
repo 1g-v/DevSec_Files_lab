@@ -5,7 +5,7 @@ filename = "tmp.txt"
 
 
 def submenu():
-    title = '[Work with ]'
+    title = '[Work with text file]'
     options = ['Create/clear file', 'Add line to file', 'Read file', 'Delete file', 'Back']
     option, index = pick(options, title, indicator='=>', default_index=0)
     return index

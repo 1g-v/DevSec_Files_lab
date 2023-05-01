@@ -24,7 +24,7 @@ def extract_from_zip(filename):
 
 
 def submenu():
-    title = '[Work with JSON file]'
+    title = '[Work with zip-archive]'
     options = ['Create zip-archive', 'Add file to zip', 'Extract file from zip', 'Delete zip', 'Back']
     option, index = pick(options, title, indicator='=>', default_index=0)
     return index
